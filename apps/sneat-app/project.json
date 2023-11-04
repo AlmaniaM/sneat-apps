@@ -94,6 +94,19 @@
 				"jestConfig": "apps/sneat-app/jest.config.ts",
 				"passWithNoTests": true
 			}
+		},
+		"e2e": {
+			"executor": "@nx/cypress:cypress",
+			"options": {
+				"cypressConfig": "apps/sneat-app/cypress.config.ts",
+				"testingType": "e2e",
+				"devServerTarget": "sneat-app:serve"
+			},
+			"configurations": {
+				"production": {
+					"devServerTarget": "sneat-app:serve:production"
+				}
+			}
 		}
 	}
 }
