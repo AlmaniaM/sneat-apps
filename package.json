@@ -10,10 +10,9 @@
     "build": "nx build",
     "test": "nx test",
     "prepare": "husky install",
-		"emulators": "firebase emulators:start --only database,firestore",
-		"cy:test": "nx e2e sneat-app --configuration=production",
-		"cy:open": "nx e2e sneat-app --watch",
-		"cy:emulate": "cross-env FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" FIRESTORE_EMULATOR_HOST=\"localhost:8080\" yarn cy:open"
+    "emulators": "firebase emulators:start --only database,firestore",
+    "cy:test": "nx e2e sneat-app --configuration=production",
+    "cy:open": "nx e2e sneat-app --watch"
   },
   "private": true,
   "pnpm": {
@@ -61,6 +60,7 @@
     "@angular/cli": "16.2.9",
     "@angular/compiler-cli": "16.2.11",
     "@angular/language-service": "16.2.11",
+    "@firebase/firestore": "^4.3.2",
     "@nx/cypress": "^17.0.2",
     "@nx/eslint": "17.0.2",
     "@nx/eslint-plugin": "17.0.2",

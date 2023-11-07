@@ -1,5 +1,3 @@
-// import { getGreeting } from '../support/app.po';
-
 // const authEmulatorPort = '9099';
 // const firebaseProjectId = 'demo-local-sneat-app';
 // const clearAuth = async () => {
@@ -13,25 +11,19 @@
 //   if (res.status !== 200) throw new Error('Unable to reset Authentication Emulators');
 // }
 
-// describe('sneat-app', () => {
-// 	beforeEach(async () => clearAuth());
-// 	beforeEach(() => cy.visit('/'));
+describe('sneat-app', () => {
+	// beforeEach(async () => clearAuth());
+	beforeEach(() => {
+		cy.init();
+		cy.login('test@gmail.com', 'password');
+		cy.visit('http://localhost:4200');
+	});
 
-// 	it('should display welcome message', () => {
-// 		cy.get('sneat-auth-menu-item').click();
-// 		cy.get('ion-item:contains(Login with Google)').click();
-
-// 		// Custom command example, see `../support/commands.ts` file
-// 		cy.login('my-email@something.com', 'myPassword');
-
-// 		// Function helper example, see `../support/app.po.ts` file
-// 		getGreeting().contains(/Welcome/);
-// 	});
-// });
-
-describe('Some Test', () => {
-	it('Adds document to test_hello_world collection of Firestore', () => {
-		cy.callFirestore('add', 'test_hello_world', { some: 'value' });
-		cy.login('am@gmail.com');
+	it('should display welcome message', () => {
+		cy.get('sneat-auth-menu-item').click();
+		cy.get('input[type="email"]').type('test@gmail.com');
+		cy.get('input[name="first_name"]').type('Test');
+		cy.get('input[name="last_name"]').type('Name');
+		cy.get('ion-button ion-label:contains(Sign up)').click();
 	});
 });
