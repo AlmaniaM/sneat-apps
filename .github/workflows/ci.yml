@@ -71,7 +71,6 @@ jobs:
             FIREBASE_AUTH_EMULATOR_HOST: 127.0.0.1:9099
             FIRESTORE_EMULATOR_HOST: 127.0.0.1:8080
             FIREBASE_EMULATORS_PATH: ${{ github.workspace }}/emulator-cache
-            CYPRESS_CACHE_FOLDER: ${{ github.workspace }}/cypress-cache
 
         steps:
             -   name: Checkout repository
@@ -107,7 +106,7 @@ jobs:
             -   name: Cache Cypress
                 uses: actions/cache@v3
                 with:
-                    path: ${{ env.CYPRESS_CACHE_FOLDER }}
+                    path: /home/runner/.cache/Cypress
                     key: ${{ runner.os }}-cypress-cache-${{ hashFiles('Cypress/**') }}
                     restore-keys: |
                       ${{ runner.os }}-cypress-cache-
