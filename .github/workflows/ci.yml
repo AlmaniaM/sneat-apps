@@ -167,7 +167,6 @@ jobs:
             uses: actions/cache@v3
             with:
                 path: |
-                    /home/runner/.cache/Cypress
                     ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
                 key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
                 restore-keys: |
@@ -178,13 +177,6 @@ jobs:
 
           - name: Install wait-on
             run: pnpm install wait-on
-
-          - name: Cache firebase emulators
-            uses: actions/cache@v3
-            with:
-                path: ${{ env.FIREBASE_EMULATORS_PATH }}
-                key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('emulator-cache/**') }}
-            continue-on-error: true
 
           - name: Install latest Chrome
             uses: browser-actions/setup-chrome@v1
@@ -206,7 +198,7 @@ jobs:
             run: |
                 pnpm run cy:build:ci
                 pnpm run cy:serve:ci &
-                sleep 60
+                echo "Server started!"
 
           - name: Run e2e tests
             uses: cypress-io/github-action@v6
