@@ -210,11 +210,13 @@ jobs:
                 pnpm run cy:build:ci
 
           - name: LS Dir
-            run: ls ./dist/apps/sneat-app-e2e
+            run: |
+              ls
+              ls dist/apps/sneat-app-e2e
 
           - name: Serve application
             run: |
-                cd ./dist/apps/sneat-app-e2e
+                cd dist/apps/sneat-app-e2e
                 pnpm run cy:serve:ci &
                 sleep 120
 
