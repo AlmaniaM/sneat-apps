@@ -202,18 +202,18 @@ jobs:
                 pnpm run cy:emulators &
                 sleep 10
 
-          - name: Build and serve application
-            run: |
-                pnpm run cy:build:ci
-                pnpm run cy:serve:ci &
-                sleep 60
+          # - name: Build and serve application
+          #   run: |
+          #       pnpm run cy:build:ci
+          #       pnpm run cy:serve:ci &
+          #       sleep 60
 
-          - name: Wait for application
-            run: |
-                npx --yes wait-on --timeout 60000 tcp:8080
-                npx --yes wait-on --timeout 60000 tcp:4205
+          # - name: Wait for application
+          #   run: |
+          #       npx --yes wait-on --timeout 60000 tcp:8080
+          #       npx --yes wait-on --timeout 60000 tcp:4205
 
           - name: Run e2e tests
             uses: cypress-io/github-action@v6
             with:
-                command: pnpm run cy:test:ci
+                command: pnpm run cy:test:dev
