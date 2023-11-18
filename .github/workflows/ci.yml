@@ -215,4 +215,4 @@ jobs:
             uses: cypress-io/github-action@v6
             with:
                 command: pnpm run cy:test:ci
-                wait-on: 'npx -i 5000 wait-on --timeout 60000 http://localhost:4205'
+                wait-on: 'npm  wait-on --interval 5000 --timeout 60000 http://localhost:4205'
