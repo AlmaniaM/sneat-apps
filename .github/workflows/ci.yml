@@ -198,7 +198,7 @@ jobs:
             run: |
                 pnpm run cy:build:ci
                 pnpm run cy:serve:ci &
-                echo "Server started!"
+                sleep 60
 
           - name: Run e2e tests
             uses: cypress-io/github-action@v6
