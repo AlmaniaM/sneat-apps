@@ -205,9 +205,13 @@ jobs:
                 pnpm run cy:emulators &
                 sleep 10
 
-          - name: Build and serve application
+          - name: Build application
             run: |
                 pnpm run cy:build:ci
+
+          - name: Serve application
+            run: |
+                cd ./dist/apps/sneat-app-e2e
                 pnpm run cy:serve:ci &
                 sleep 120
 
