@@ -5,6 +5,7 @@ const cypressConfig = defineConfig({
 	e2e: {
 		...nxE2EPreset(__filename, { cypressDir: 'cypress' }),
 		specPattern: 'cypress/e2e/**/*.e2e.spec.ts',
+		baseUrl: 'http://localhost:4205',
 	},
 	chromeWebSecurity: false,
 	trashAssetsBeforeRuns: true,
