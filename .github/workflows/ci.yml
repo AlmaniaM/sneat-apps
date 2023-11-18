@@ -206,7 +206,10 @@ jobs:
             run: |
                 pnpm run cy:build:ci
                 pnpm run cy:serve:ci &
-                sleep 30
+                sleep 60
+
+          - name: Wait for application
+            run: |
                 npx --yes wait-on --timeout 60000 tcp:8080
                 npx --yes wait-on --timeout 60000 tcp:4205
 
