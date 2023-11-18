@@ -83,6 +83,7 @@ Cypress.Commands.add('deleteAllAuthUsers', () => {
 		'DELETE',
 		`${AUTH_ENDPOINT}/emulator/v1/projects/${FIREBASE_CONFIG.projectId}/accounts`,
 	).then((response) => {
+		console.log('DELETE all users: ', response);
 		expect(response.status).to.eq(200);
 	});
 });

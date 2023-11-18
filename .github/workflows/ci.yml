@@ -206,10 +206,11 @@ jobs:
             run: |
                 pnpm run cy:build:ci
                 pnpm run cy:serve:ci &
-                sleep 60
+                sleep 30
+                npx --yes wait-on --timeout 60000 tcp:8080
+                npx --yes wait-on --timeout 60000 tcp:4205
 
           - name: Run e2e tests
             uses: cypress-io/github-action@v6
             with:
                 command: pnpm run cy:test:ci
-                wait-on: 'npx --yes wait-on --timeout 60000 tcp:4205'
