@@ -211,6 +211,4 @@ jobs:
                 npx --yes wait-on --timeout 60000 tcp:4205
 
           - name: Run e2e tests
-            uses: cypress-io/github-action@v6
-            with:
-                command: pnpm run cy:test:ci
+            run: pnpm run cy:test:ci
