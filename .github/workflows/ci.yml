@@ -102,9 +102,7 @@ jobs:
                 continue-on-error: true
 
             -   name: Install Cypress
-                uses: cypress-io/github-action@v6
-                with:
-                    runTests: false
+                run: pnpm install cypress@latest --save-dev --ignore-scripts
 
             -   name: Cache Cypress
                 uses: actions/cache@v3
